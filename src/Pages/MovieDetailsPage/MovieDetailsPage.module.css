@@ -1,0 +1,23 @@
+.div {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  margin: 10px;
+}
+
+.div a {
+  text-decoration: none;
+  color: rgb(51, 46, 130);
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.div a:hover {
+  color: darkblue;
+}
+
+.div b {
+  color: rgb(5, 5, 5);
+  font-size: 30px;
+  margin: 10px;
+}
