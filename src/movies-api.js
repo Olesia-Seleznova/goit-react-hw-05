@@ -24,7 +24,7 @@ export const fetchTrendMovies = async () => {
 };
 
 export const fetchSearchMovie = async (query) => {
-  const response = await axios.get("/search/movie", {
+  const response = await axios.get(`/search/movie?query=${query}`, {
     params: {
       api_key: API_KEY,
       ...options,
@@ -42,4 +42,24 @@ export const fetchDetailsMovie = async (movieId) => {
     },
   });
   return response.data;
+};
+
+export const fetchReviews = async (movieId) => {
+  const response = await axios.get(`movie/${movieId}/reviews`, {
+    params: {
+      ...options,
+      api_key: API_KEY,
+    },
+  });
+  return response.data.results;
+};
+
+export const fetchCast = async (movieId) => {
+  const response = await axios.get(`movie/${movieId}/credits`, {
+    params: {
+      ...options,
+      api_key: API_KEY,
+    },
+  });
+  return response.data.results;
 };
