@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useParams, Link, Outlet } from "react-router-dom";
 import { fetchDetailsMovie } from "../../movies-api";
 
@@ -9,6 +9,8 @@ export default function MovieDetailsPage() {
   const [dataMovie, setDataMovie] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+  // const location = useLocation();
+  // const backLink = location.state;
 
   useEffect(() => {
     async function getDetailsMovie() {
@@ -62,7 +64,9 @@ export default function MovieDetailsPage() {
           </li>
         </ul>
 
-        <Outlet />
+        <Suspense fallback={<p>Please wait loading page...</p>}>
+          <Outlet />
+        </Suspense>
       </div>
 
       <hr />
