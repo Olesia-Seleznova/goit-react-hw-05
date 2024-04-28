@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-// import css from "./Moviereviews.module.css";
+import css from "./MovieReviews.module.css";
 import { fetchReviews } from "../../movies-api";
 
 export default function MovieReviews() {
@@ -26,18 +26,18 @@ export default function MovieReviews() {
   }, [movieId]);
 
   return (
-    <div>
-      {loading && <b>Loading reviews...</b>}
-      {error && <b>Error fetching reviews!</b>}
+    <div className={css.div}>
+      {loading && <b className={css.loading}>Loading reviews...</b>}
+      {error && <b className={css.error}>Error fetching reviews!</b>}
       {reviews.length > 0 ? (
         reviews.map((review, index) => (
-          <div key={index}>
-            <h3>{review.author}</h3>
-            <p>{review.content}</p>
+          <div key={index} className={css.review}>
+            <h3 className={css.h3}>Author: {review.author}</h3>
+            <p className={css.p}>{review.content}</p>
           </div>
         ))
       ) : (
-        <p>No reviews available for this movie.</p>
+        <p className={css.noRevies}>No reviews available for this movie.</p>
       )}
     </div>
   );
