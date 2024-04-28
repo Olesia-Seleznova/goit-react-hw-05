@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-// import css from "./MovieCast.module.css";
+import css from "./MovieCast.module.css";
 import { fetchCast } from "../../movies-api";
 
 export default function MovieCast() {
@@ -26,20 +26,25 @@ export default function MovieCast() {
   }, [movieId]);
 
   return (
-    <ul>
-      {cast &&
-        cast.map(({ id, name, character, profile_path }) => (
-          <li key={id}>
-            <img
-              src={`https://image.tmdb.org/t/p/w300/${profile_path}`}
-              alt={name}
-            />
-            <h3>{name}</h3>
-            {character && <p>{`Character: ${character}`}</p>}
-          </li>
-        ))}
+    <div>
       {loading && <b>Please wait, movies are loading...</b>}
       {error && <b>Please try again!</b>}
-    </ul>
+      <ul className={css.ul}>
+        {cast &&
+          cast.map(({ id, name, character, profile_path }) => (
+            <li key={id} className={css.li}>
+              <img
+                className={css.img}
+                src={`https://image.tmdb.org/t/p/w300/${profile_path}`}
+                alt={name}
+              />
+              <h3 className={css.h3}>{name}</h3>
+              {character && (
+                <p className={css.p}>{`Character: ${character}`}</p>
+              )}
+            </li>
+          ))}
+      </ul>
+    </div>
   );
 }

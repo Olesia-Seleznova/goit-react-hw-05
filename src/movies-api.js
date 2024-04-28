@@ -61,5 +61,5 @@ export const fetchCast = async (movieId) => {
       api_key: API_KEY,
     },
   });
-  return response.data.results;
+  return response.data.cast;
 };
