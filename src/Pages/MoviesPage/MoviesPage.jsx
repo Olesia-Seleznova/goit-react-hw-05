@@ -11,7 +11,6 @@ export default function MoviesPage() {
   const [error, setError] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
   const searchParam = searchParams.get("query") ?? "";
-  // const location = useLocation();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -73,7 +72,6 @@ export default function MoviesPage() {
 
       {movies.length > 0 ? (
         <div>
-          {/* <Link to="/movies/${id}">← Go back</Link> */}
           <MovieList movies={filteredMovies} />
         </div>
       ) : searchParam ? (
