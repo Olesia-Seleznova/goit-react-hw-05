@@ -2,7 +2,7 @@ import css from "./MoviesPage.module.css";
 import { useEffect, useState, useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
 import { fetchSearchMovie } from "../../movies-api";
-import MovieList from "../../Components/MovieList/MovieList";
+import MovieList from "../../components/MovieList/MovieList";
 
 export default function MoviesPage() {
   const [query, setQuery] = useState("");
